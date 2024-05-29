@@ -66,9 +66,12 @@ fun MyTodoAppContent(
         topBar = {
             TopAppBar(
                 title = { Text(
-                    text = "My TODO",
-                    color = Color.Blue
-                ) }
+                    text = "MyToDo",
+                    color = Color.White
+                ) },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xFF6200EE) // トップバーの背景色
+                )
             )
         }
     )   { paddingValue ->
@@ -144,7 +147,7 @@ fun TodoItem(
 fun DefaultPreview() {
     MyFirstApplicationTheme {
         MyTodoAppContent(
-            todo = remember { mutableStateOf("文字を入力中...") },
+            todo = remember { mutableStateOf("ToDoを入力") },
             todoList = remember {
                 mutableStateListOf(
                     Todo(text = "長いTODOの場合はこのように適宜改行されるようになっている", isCompleted = false),
